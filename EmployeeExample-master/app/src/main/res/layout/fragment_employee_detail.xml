@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.detail.EmployeeDetailFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        tools:context=".ui.EmployeeDetailFragment">
+
+    <TextView
+        android:id="@+id/employee_role_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/role"
+        app:layout_constraintStart_toEndOf="@+id/employee_photo"
+        app:layout_constraintTop_toBottomOf="@+id/employee_name" />
+
+
+        <ImageView
+        android:id="@+id/employee_photo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/employee_photo"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/blank_photo"
+        tools:srcCompat="@drawable/blank_photo" />
+
+    <EditText
+        android:id="@+id/employee_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/enter_employee_name"
+        android:inputType="text"
+        android:maxLength="50"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employee_photo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+        <RadioGroup
+        android:id="@+id/gender_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/employee_age_label"
+        app:layout_constraintTop_toBottomOf="@+id/employee_age">
+
+        <RadioButton
+            android:id="@+id/gender_male"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/gender_female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/female" />
+
+        <RadioButton
+            android:id="@+id/gender_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="@string/other" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/employee_role"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/employee_role_label"
+        app:layout_constraintTop_toBottomOf="@+id/employee_name" />
+
+    <TextView
+        android:id="@+id/employee_age_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/age"
+        app:layout_constraintStart_toStartOf="@+id/employee_role_label"
+        app:layout_constraintTop_toBottomOf="@+id/employee_role" />
+
+    <Spinner
+        android:id="@+id/employee_age"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/employee_age_label"
+        app:layout_constraintTop_toBottomOf="@+id/employee_role" />
+
+    <ImageView
+        android:id="@+id/photo_from_camera"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employee_photo" />
+
+    <ImageView
+        android:id="@+id/photo_from_gallery"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_baseline_photo_library_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_from_camera" />
+
+    <TextView
+        android:id="@+id/employee_responsibilities_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Responsibilities"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_from_gallery" />
+
+        <EditText
+            android:id="@+id/employee_responsibilities_detail"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:ems="10"
+            android:inputType="textMultiLine|textPersonName"
+           android:layout_margin="16dp"
+            android:hint="Enter Responsibilities here"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_responsibilities_label" />
+
+
+        <TextView
+            android:id="@+id/employee_experience_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Experience"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_responsibilities_detail" />
+
+        <EditText
+            android:id="@+id/employee_experience"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+
+            android:hint="Enter Experience here"
+            android:inputType="textMultiLine|textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_experience_label" />
+
+        <TextView
+            android:id="@+id/employee_education_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Education"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_experience" />
+
+        <EditText
+            android:id="@+id/employee_education"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+
+            android:hint="Enter Education here"
+            android:inputType="textMultiLine|textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_education_label" />
+
+        <TextView
+            android:id="@+id/personal_Info_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textStyle="bold"
+            android:text="Personal Information"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_education" />
+
+
+        <TextView
+            android:id="@+id/employee_phone_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="16dp"
+            android:textStyle="bold"
+            android:text=" Phone "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personal_Info_label" />
+
+        <EditText
+            android:id="@+id/employee_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="Enter Phone Number"
+            android:layout_margin="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/employee_phone_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/employee_phone_label" />
+
+
+
+
+        <TextView
+            android:id="@+id/employee_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="16dp"
+            android:textStyle="bold"
+            android:text="Email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_phone_label" />
+
+        <EditText
+            android:id="@+id/employee_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress|textPersonName"
+            android:hint="Enter Email"
+            android:layout_margin="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/employee_email_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/employee_phone_label" />
+
+
+
+        <TextView
+            android:id="@+id/employee_address_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_email" />
+
+
+        <EditText
+            android:id="@+id/employee_address"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Enter Address "
+            android:inputType="textMultiLine|textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_address_label" />
+
+
+        <Button
+            android:id="@+id/save_employee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/save_employee"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/delete_employee"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/employee_address"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/delete_employee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/delete_employee"
+            app:layout_constraintBaseline_toBaselineOf="@+id/save_employee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/save_employee" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:subtitleTextColor="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <include
+            layout="@layout/list_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
